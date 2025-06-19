@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -12,12 +13,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'   # or 16 or any LTS version
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
         working-directory: node-app
 
-      - name: Run test
+      - name: Run tests
+        run: npx jest
         working-directory: node-app
-        run: npm test
