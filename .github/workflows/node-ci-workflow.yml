@@ -8,8 +8,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: change dir
-        run: cd node-app
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -17,6 +16,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: node-app
 
-      - name: Run tests
+      - name: Run test
+        working-directory: node-app
         run: npm test
